@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Yamal LNG</title>
+
+
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="static/cover.css" rel="stylesheet">
+    <link href="static/bootstrap.css" rel="stylesheet">
+    <link rel="shortcut icon" href="static/logo.png" />
+  </head>
+  <body class="d-flex h-100 text-center text-bg-dark">
+
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="mb-auto">
+    <div>
+      <a href="/"><h3 class="float-md-start mb-0">Wi-Fi Sponsor Portal</h3></a>
+      <nav class="nav nav-masthead justify-content-center float-md-end">
+        <img src="static/logo.png" width="128" height="37">
+      </nav>
+    </div>
+  </header>
+
+  <main class="px-3">
+
+<div class="form">
+<form action='{{ url_for("gfg")}}' method="post">
+  <h1>Создать пользователя</h1>
+  <p class="lead">Используйте первую часть корпоративного почтового ящика.</p>
+  <p class="lead">Например: ivan.ivanov</p>
+  <input type="text" class="lastname" id="lastname" name="lname" placeholder="SamAccountName">
+    <input type="date" class="lastname" id="period" name="period" placeholder="Days">
+  <br>
+<input id="create-but" class="btn btn-lg btn-secondary fw-bold border-white bg-white" type="submit" name="submit_button" value="Create user">
+<input id="remove-but" class="btn btn-lg btn-secondary fw-bold border-white bg-white" type="submit" name="submit_button" value="Remove user">
+</form></div>
+      <div class="UserList">
+            {% with messages = get_flashed_messages() %}
+               {% if messages %}
+                  {% for message in messages[1:] %}
+                     {{ message }}<br>
+                  {% endfor %}
+               {% endif %}
+            {% endwith %}
+      </div>
+
+      <h1 id="load-one">
+    <span class="let1">l</span>
+    <span class="let2">o</span>
+    <span class="let3">a</span>
+    <span class="let4">d</span>
+    <span class="let5">i</span>
+    <span class="let6">n</span>
+    <span class="let7">g</span>
+  </h1>
+  </main>
+
+  <footer class="mt-auto text-white-50">
+      {% with messages = get_flashed_messages() %}
+    <p>Форма для управления Wi-Fi пользователями сети YLNG_USERS. <br>
+        Число используемых аккаунтов: {{ messages[0] }}/100</p>
+      {% endwith %}
+  </footer>
+</div>
+<script type="text/javascript">
+setTimeout(() => {
+  const box = document.getElementById('but');
+  box.style.visibility = 'visible';
+}, 1);
+function toggle_display(){
+  el = document.querySelector('.btn');
+  setTimeout(() => {
+  const box = document.getElementById('load-one');
+  box.style.visibility = 'visible';
+}, 500);
+
+  if(el.style.visibility == 'hidden'){
+      el.style.visibility = 'visible'
+  }else{
+     el.style.visibility = 'hidden'
+  }
+}
+</script>
+  </body>
+</html>
