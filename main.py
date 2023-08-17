@@ -2,10 +2,8 @@
 import requests
 import json
 import random
-import arrow
-import os
 import config
-from pprint import pprint
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = config.shared_secret
@@ -121,7 +119,7 @@ def AccountList():
 
 def AccountListPage(page):
 	email = '@obghk.ru'
-	url = f"https://10.188.125.122:9060/ers/config/internaluser/?filter=email.CONTAINS.%40obghk.ru&page={page}"
+	url = f"https://{config.ip}:9060/ers/config/internaluser/?filter=email.CONTAINS.%40obghk.ru&page={page}"
 	payload = {}
 	headers = {
 		'Accept': 'application/json',
@@ -221,7 +219,7 @@ def login():
 
 if __name__ == '__main__':
 	users.append(User(username='obghk.admin', password="123456"))
-	app.run(debug=True, host='0.0.0.0', port='80')
+	app.run(host="0.0.0.0", port=5000, debug=True)
 
 
 
